@@ -1,0 +1,25 @@
+<h2>List a Car</h2>
+
+<form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+  <label>
+    Title:
+    <input type="text" formControlName="title" />
+  </label>
+
+  <label>
+    Make:
+    <input type="text" formControlName="make" />
+  </label>
+
+  <label>
+    Model:
+    <input type="text" formControlName="model" />
+  </label>
+
+  <label>
+    Year:
+    <input type="number" formControlName="year" />
+  </label>
+
+  <button type="submit" [disabled]="carForm.invalid">Submit</button>
+</form>
