@@ -9,7 +9,17 @@
         <a mat-flat-button color="primary" [routerLink]="['/new']">Add New Car</a>
         <a mat-flat-button color="primary" [routerLink]="['/list']">List of Cars</a>
         <span class="separator"></span>
-        <a mat-flat-button color="primary" [routerLink]="['/login']">Login</a>
+        @if(isLoggedIn){
+          <a mat-flat-button color="primary" (click)="logout()">Logout</a>
+       }
+       @else{
+         <a mat-flat-button color="primary" [routerLink]="['/login']">Login</a>
+       }
+
+
+
+
+
     </mat-toolbar>
   </header>
 
