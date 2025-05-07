@@ -15,7 +15,7 @@ export class CarListingsComponent {
       make: 'Toyota',
       model: 'Camry',
       year: 2020,
-      
+      description: 'A reliable sedan for everyday use'
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ export class CarListingsComponent {
       make: 'Honda',
       model: 'Civic',
       year: 2018,
-      
+      description: 'A coupe for impressing all of your friends'
       
     }
   ];

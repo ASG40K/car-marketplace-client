@@ -4,5 +4,6 @@ export interface CarList {
         make: string;
         model: string;
         year: number;
+        description: string;
       }
 
