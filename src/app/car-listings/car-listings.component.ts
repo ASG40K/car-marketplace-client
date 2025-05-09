@@ -25,7 +25,15 @@ export class CarListingsComponent {
       year: 2018,
       description: 'A coupe for impressing all of your friends'
       
+    },
+     {
+      id: 2,
+      title: 'Hardy Car',
+      make: 'Ford',
+      model: 'Mustang',
+      year: 2018,
+      description: 'A coupe for impressing all of your friends'
+      
     }
   ];
 }
-
