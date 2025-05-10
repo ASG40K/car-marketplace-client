@@ -16,10 +16,11 @@ export class CarListingsFormComponent {
   constructor(private fb: FormBuilder) {
     this.carForm = this.fb.group({
       title: ['', Validators.required],
-      description: [''],
+     
       make: ['', Validators.required],
       model: ['', Validators.required],
-      year: [null, Validators.required],
+      year: [null, Validators.required], 
+      description: ['', Validators.required],
       userId: [1]
     });
   }
