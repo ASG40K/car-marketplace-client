@@ -1,39 +1,26 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { CarList } from '../car-list';
+import { environment } from '../../environments/environment.development';
+
 @Component({
   selector: 'app-car-listings',
-  imports: [CommonModule],
   templateUrl: './car-listings.component.html',
   styleUrl: './car-listings.component.scss'
 })
-export class CarListingsComponent {
-  listings: CarList[] = [
-    {
-      id: 1,
-      title: 'Reliable Sedan',
-      make: 'Toyota',
-      model: 'Camry',
-      year: 2020,
-      description: 'A reliable sedan for everyday use'
-    },
-    {
-      id: 2,
-      title: 'Sporty Coupe',
-      make: 'Honda',
-      model: 'Civic',
-      year: 2018,
-      description: 'A coupe for impressing all of your friends'
-      
-    },
-     {
-      id: 2,
-      title: 'Hardy Car',
-      make: 'Ford',
-      model: 'Mustang',
-      year: 2018,
-      description: 'A coupe for impressing all of your friends'
-      
-    }
-  ];
+export class CarListingsComponent implements OnInit {
+  public listings: CarList[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.getListings();
+  }
+
+  getListings(): void {
+    this.http.get<CarList[]>(`${environment.baseUrl}api/carlistings`).subscribe({
+      next: result => this.listings = result,
+      error: error => console.error('Error loading car listings:', error)
+    });
+  }
 }

@@ -1,11 +1,18 @@
 <h2>Available Car Listings</h2>
+<p>Heres a list of used cars available for sale.</p>
 
-<ul>
-  <li *ngFor="let car of listings" class="car-card">
-    <h3 class="car-title">{{ car.title }}</h3>
-    <p><strong>Make:</strong> {{ car.make }}</p>
-    <p><strong>Model:</strong> {{ car.model }}</p>
-    <p><strong>Year:</strong> {{ car.year }}</p>
-    <p><strong>Description:</strong> {{ car.description }}</p>
-  </li>
-</ul>
+@if (listings.length > 0) {
+  <ul>
+    @for (car of listings; track car.id) {
+      <li class="car-card">
+        <h3 class="car-title">{{ car.title }}</h3>
+        <p><strong>Make:</strong> {{ car.make }}</p>
+        <p><strong>Model:</strong> {{ car.model }}</p>
+        <p><strong>Year:</strong> {{ car.year }}</p>
+        <p><strong>Description:</strong> {{ car.description }}</p>
+      </li>
+    }
+  </ul>
+} @else {
+  <p><em>Loading car listings...</em></p>
+}
